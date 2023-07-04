@@ -11,6 +11,19 @@ variable "bucket_policy_only" { type = bool }
 
 // Resources
 
+# Logging Bucket
+module "cloud-storage-logging" {
+  source  = "terraform-google-modules/cloud-storage/google//modules/simple_bucket"
+  version = "~> 3.3.0"
+
+  project_id    = var.project_id
+  name          = "tgrunt-${var.name}-${var.env_name}-logging"
+  location      = var.location
+  storage_class = var.storage_class
+  versioning    = var.versioning
+  iam_members   = var.iam_members
+}
+
 #  VMDK Buckets
 module "cloud-storage-vmdk" {
   source  = "terraform-google-modules/cloud-storage/google//modules/simple_bucket"
