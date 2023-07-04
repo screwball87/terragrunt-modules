@@ -22,6 +22,10 @@ module "cloud-storage-vmdk" {
   storage_class = var.storage_class
   versioning    = var.versioning
   log_bucket    = module.cloud-storage-logging.name
+  iam_members = [
+    { role = "roles/storage.objectAdmin", member = "user:screwballriver1987@gmail.com" }
+  ]
+  bucket_policy_only = false
 }
 
 resource "google_storage_bucket_iam_member" "public_access" {
