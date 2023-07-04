@@ -6,7 +6,7 @@ variable "location" { type = string }
 variable "storage_class" { type = string }
 variable "versioning" { type = bool }
 variable "iam_members" { type = list(object({ role = string, member = string })) }
-variable "bucket_policy_only" { type = bool }
+variable "bucket_policy_only" { default = false }
 
 
 // Resources
