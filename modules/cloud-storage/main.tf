@@ -49,4 +49,4 @@ resource "google_storage_bucket_iam_member" "public_access" {
 
 // Outputs
 
-output "bucket_name" { value = module.cloud-storage-cdn.name }
+output "bucket_name" { value = module.cloud-storage-vmdk.name }
